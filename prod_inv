@@ -1,0 +1,8 @@
+[hosts]
+prod1 ansible_host=54.152.45.126
+prod2 ansible_host=100.25.24.110
+
+[hosts:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/home/ubuntu/.ssh/Ansible-Master-New.pem
