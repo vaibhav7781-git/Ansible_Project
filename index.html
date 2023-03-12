@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: #333;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-top: 50px;
+        color: #6130e8;
+      }
+      
+      p {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thanks for reading my blog</h1>
+    <p>Hope it helps!</p>
+  </body>
+</html>
+ubuntu@ip-172-31-1-175:~/ansible/playbooks$ cat webpage.yml
+-
+ name: This is a simple HTML project
+ hosts: servers
+ become: yes
+ tasks:
+   - name: "apt-get update"
+     apt:
+       update_cache: yes
+       cache_valid_time: 3600
+
+   - name: "install nginx"
+     apt:
+       name: ['nginx']
+       state: latest
+   - name: Deploy webpage
+     copy: 
+       src: index.html
+       dest: /var/www/html 
+ubuntu@ip-172-31-1-175:~/ansible/playbooks$ cat index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        color: #333;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-top: 50px;
+        color: #6130e8;
+      }
+      
+      p {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thanks for reading my blog</h1>
+    <p>Hope it helps!</p>
+  </body>
+</html>
