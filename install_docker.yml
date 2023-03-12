@@ -1,0 +1,14 @@
+-
+ name: This playbook will install docker
+ hosts: servers
+ become: yes
+ tasks:
+   - name: This will install docker
+     apt:
+       name: docker.io
+       state: latest
+   - name: This will start docker based
+     service:
+       name: docker
+       state: started
+       enabled: yes
