@@ -1,0 +1,6 @@
+-
+ name: My Date playbook
+ hosts: servers
+ tasks:
+   - name: This will show the date
+     command: date
